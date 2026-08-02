@@ -1,0 +1,61 @@
+{
+  "targets": [
+    {
+      "isStage": true,
+      "name": "Stage",
+      "variables": {
+        "var1": ["bike_count", 0],
+        "var2": ["car_count", 0],
+        "var3": ["truck_count", 0],
+        "var4": ["bike_income", 0],
+        "var5": ["car_income", 0],
+        "var6": ["truck_income", 0],
+        "var7": ["total_income", 0],
+        "var8": ["amount_due", 0]
+      },
+      "lists": {
+        "list1": ["prices", ["9.5", "18.75", "37.0"]]
+      },
+      "broadcasts": {},
+      "blocks": {},
+      "currentCostume": 0,
+      "costumes": [
+        {
+          "assetId": "backdrop",
+          "name": "backdrop1",
+          "md5ext": "backdrop.svg",
+          "dataFormat": "svg",
+          "rotationCenterX": 240,
+          "rotationCenterY": 180
+        }
+      ],
+      "sounds": [],
+      "volume": 100
+    },
+    {
+      "isStage": false,
+      "name": "Operator",
+      "variables": {},
+      "lists": {},
+      "blocks": {},
+      "currentCostume": 0,
+      "costumes": [
+        {
+          "assetId": "operatorCostume",
+          "name": "operatorCostume1",
+          "md5ext": "operator.svg",
+          "dataFormat": "svg",
+          "rotationCenterX": 48,
+          "rotationCenterY": 48
+        }
+      ],
+      "sounds": [],
+      "volume": 100
+    }
+  ],
+  "meta": {
+    "semver": "3.0.0",
+    "vm": "0.2.0",
+    "agent": "Custom generated minimal project"
+  }
+}
