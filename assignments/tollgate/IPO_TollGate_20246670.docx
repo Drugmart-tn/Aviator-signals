@@ -1,0 +1,89 @@
+Student Name: kj radebe
+Student Number: 20246670
+Subject: BPCL
+
+IPO Chart - Toll Gate Simulation
+
+Inputs:
+- vehicle_code : string (char) — 'B' / 'C' / 'T' (or sprite click)
+- bike_price : float = 9.50
+- car_price : float = 18.75
+- truck_price : float = 37.00
+- action : string — "START", "BIKE", "CAR", "TRUCK", "END_DAY"
+
+Process (high-level algorithm):
+- Initialize counters: bike_count := 0; car_count := 0; truck_count := 0
+- prices := [9.50, 18.75, 37.00]
+- counts := [0, 0, 0]
+- If action = "START" then set counts and incomes to 0
+- If action in {"B","BIKE"} then selected_index := 0; counts[0] := counts[0] + 1; amount_due := prices[0]; show amount_due
+- If action in {"C","CAR"} then selected_index := 1; counts[1] := counts[1] + 1; amount_due := prices[1]; show amount_due
+- If action in {"T","TRUCK"} then selected_index := 2; counts[2] := counts[2] + 1; amount_due := prices[2]; show amount_due
+- If action = "END_DAY" then
+    total_vehicles := counts[0] + counts[1] + counts[2]
+    total_income := counts[0]*prices[0] + counts[1]*prices[1] + counts[2]*prices[2]
+    display summary (counts and total_income)
+    reset counts and totals to 0
+
+Outputs:
+- bike_count : integer
+- car_count : integer
+- truck_count : integer
+- total_vehicles : integer
+- bike_income : float
+- car_income : float
+- truck_income : float
+- total_income : float
+- display_message : string
+
+Intermediate variables:
+- prices : list of floats [9.50, 18.75, 37.00]
+- selected_index : integer (0 for bike, 1 for car, 2 for truck)
+- amount_due : float
+- counts : list of integers [bike_count, car_count, truck_count]
+
+Pseudocode:
+
+START:
+  bike_count := 0
+  car_count  := 0
+  truck_count := 0
+  prices := [9.50, 18.75, 37.00]
+  total_income := 0
+
+WHEN user clicks BIKE:
+  bike_count := bike_count + 1
+  amount_due := prices[0]
+  SHOW "Bike - Amount due: R" + format(amount_due, 2)
+  bike_income := bike_count * prices[0]
+
+WHEN user clicks CAR:
+  car_count := car_count + 1
+  amount_due := prices[1]
+  SHOW "Car - Amount due: R" + format(amount_due, 2)
+  car_income := car_count * prices[1]
+
+WHEN user clicks TRUCK:
+  truck_count := truck_count + 1
+  amount_due := prices[2]
+  SHOW "Truck - Amount due: R" + format(amount_due, 2)
+  truck_income := truck_count * prices[2]
+
+WHEN user clicks END_DAY:
+  total_vehicles := bike_count + car_count + truck_count
+  total_income := bike_income + car_income + truck_income
+  SHOW "End of day: Bikes=" + bike_count + ", Cars=" + car_count + ", Trucks=" + truck_count
+  SHOW "Total vehicles: " + total_vehicles
+  SHOW "Total income: R" + format(total_income, 2)
+  bike_count := 0; car_count := 0; truck_count := 0
+  bike_income := 0.0; car_income := 0.0; truck_income := 0.0
+  total_income := 0.0
+
+Notes for Scratch implementation:
+- Create variables: bike_count, car_count, truck_count, bike_income, car_income, truck_income, total_income, amount_due
+- Create list: prices with three items: 9.50, 18.75, 37.00
+- START sprite: set all variables to 0 and show a "system ready" message
+- Bike/Car/Truck sprites: on click broadcast a message or run script that increments the appropriate count, sets amount_due from the prices list (use list item), updates per-type income, and have the operator/person sprite say the amount_due for ~2 seconds
+- END DAY sprite: on click compute totals, show summary (either using say blocks or show on stage), then reset counters if required
+
+Student signature: kj radebe
